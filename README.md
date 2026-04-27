@@ -4,7 +4,7 @@ A starter project for building webforJ applications with the Kotlin DSL and Spri
 
 ## Prerequisites
 
-- Java 17 or newer
+- Java 21 or newer
 - Maven 3.9+
 
 ## Getting Started

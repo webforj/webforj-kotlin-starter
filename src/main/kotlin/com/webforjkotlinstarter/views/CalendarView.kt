@@ -8,14 +8,16 @@ import com.webforj.kotlin.extension.percent
 import com.webforj.router.annotation.FrameTitle
 import com.webforj.router.annotation.Route
 
-@Route(value = "/spam", outlet = MainLayout::class)
-@FrameTitle("Spam")
-class SpamView : Composite<FlexLayout>() {
+@Route(value = "/calendar", outlet = MainLayout::class)
+@FrameTitle("Calendar")
+class CalendarView : Composite<FlexLayout>() {
   private val self = boundComponent
 
   init {
-    self.setHeight(100.percent)
-    self.setAlignment(FlexAlignment.CENTER)
-    self.add(Explore("Spam"))
+    self.apply {
+      height = 100.percent
+      alignment = FlexAlignment.CENTER
+      add(Explore("Nothing scheduled", "calendar-event", "New event"))
+    }
   }
 }

@@ -8,14 +8,16 @@ import com.webforj.kotlin.extension.percent
 import com.webforj.router.annotation.FrameTitle
 import com.webforj.router.annotation.Route
 
-@Route(value = "/favorites", outlet = MainLayout::class)
-@FrameTitle("Favorites")
-class FavoritesView : Composite<FlexLayout>() {
+@Route(value = "/tasks", outlet = MainLayout::class)
+@FrameTitle("Tasks")
+class TasksView : Composite<FlexLayout>() {
   private val self = boundComponent
 
   init {
-    self.setHeight(100.percent)
-    self.setAlignment(FlexAlignment.CENTER)
-    self.add(Explore("Favorites"))
+    self.apply {
+      height = 100.percent
+      alignment = FlexAlignment.CENTER
+      add(Explore("You're all caught up", "checklist", "Create task"))
+    }
   }
 }

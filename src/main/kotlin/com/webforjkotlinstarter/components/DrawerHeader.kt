@@ -5,25 +5,26 @@ import com.webforj.component.layout.flexlayout.FlexDirection
 import com.webforj.component.layout.flexlayout.FlexLayout
 import com.webforj.kotlin.dsl.component.html.elements.h1
 import com.webforj.kotlin.dsl.component.html.elements.paragraph
-import com.webforj.kotlin.extension.styles
 import com.webforj.kotlin.extension.set
-import com.webforj.kotlin.extension.px
-import com.webforj.kotlin.extension.em
+import com.webforj.kotlin.extension.styles
 
 class DrawerHeader : Composite<FlexLayout>() {
   private val self = boundComponent
 
   init {
-    self.setDirection(FlexDirection.COLUMN)
-    self.setSpacing(0.px)
+    self.apply {
+      direction = FlexDirection.COLUMN
+      spacing = "0"
 
-    self.h1("Mailbox") {
-      styles["margin-bottom"] = "0"
-    }
+      h1("Acme CRM") {
+        styles["margin"] = "0"
+      }
 
-    self.paragraph("john@mailbox.com") {
-      styles["color"] = "#86888f"
-      styles["font-size"] = 0.7.em
+      paragraph("john@acme.com") {
+        styles["color"] = "var(--dwc-color-gray-text-light)"
+        styles["font-size"] = "var(--dwc-font-size-xs)"
+        styles["margin"] = "0"
+      }
     }
   }
 }

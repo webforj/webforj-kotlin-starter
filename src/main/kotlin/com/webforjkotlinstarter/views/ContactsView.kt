@@ -8,14 +8,16 @@ import com.webforj.kotlin.extension.percent
 import com.webforj.router.annotation.FrameTitle
 import com.webforj.router.annotation.Route
 
-@Route(value = "/trash", outlet = MainLayout::class)
-@FrameTitle("Trash")
-class TrashView : Composite<FlexLayout>() {
+@Route(value = "/contacts", outlet = MainLayout::class)
+@FrameTitle("Contacts")
+class ContactsView : Composite<FlexLayout>() {
   private val self = boundComponent
 
   init {
-    self.setHeight(100.percent)
-    self.setAlignment(FlexAlignment.CENTER)
-    self.add(Explore("Trash"))
+    self.apply {
+      height = 100.percent
+      alignment = FlexAlignment.CENTER
+      add(Explore("No contacts yet", "users", "Add contact"))
+    }
   }
 }
