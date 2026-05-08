@@ -16,7 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
-    <webforj.version>26.00-SNAPSHOT</webforj.version>
+    <webforj.version>26.00</webforj.version>
     <kotlin.version>2.3.21</kotlin.version>
   </properties>
   <repositories>
