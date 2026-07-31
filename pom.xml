@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>4.0.6</version>
+    <version>4.1.0</version>
   </parent>
   <groupId>com.webforjkotlinstarter</groupId>
   <artifactId>webforj-kotlin-starter</artifactId>
@@ -16,7 +16,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
+<<<<<<< HEAD
     <webforj.version>26.00</webforj.version>
+=======
+    <webforj.version>26.01</webforj.version>
+>>>>>>> 7790932 (build: migrate to webforJ 26.01 frontend bundler)
     <kotlin.version>2.3.21</kotlin.version>
   </properties>
   <repositories>
@@ -109,7 +113,7 @@
     </dependency>
   </dependencies>
   <build>
-    <defaultGoal>spring-boot:run</defaultGoal>
+    <defaultGoal>compile webforj:watch spring-boot:run</defaultGoal>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
@@ -118,6 +122,14 @@
           <excludeDevtools>true</excludeDevtools>
         </configuration>
       </plugin>
+      <!-- webforJ build plugin, drives the frontend bundler (bundle, watch, test, clean) -->
+      <plugin>
+        <groupId>com.webforj</groupId>
+        <artifactId>webforj-maven-plugin</artifactId>
+        <version>${webforj.version}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <!-- Runs the integration tests (*IT) after the server is started -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
@@ -199,44 +211,6 @@
                 </exclude>
               </excludes>
             </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-              <annotationProcessorPaths>
-                <path>
-                  <groupId>com.webforj</groupId>
-                  <artifactId>webforj-minify-foundation</artifactId>
-                  <version>${webforj.version}</version>
-                </path>
-              </annotationProcessorPaths>
-            </configuration>
-          </plugin>
-          <plugin>
-            <groupId>com.webforj</groupId>
-            <artifactId>webforj-minify-maven-plugin</artifactId>
-            <version>${webforj.version}</version>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>minify</goal>
-                </goals>
-              </execution>
-            </executions>
-            <dependencies>
-              <dependency>
-                <groupId>com.webforj</groupId>
-                <artifactId>webforj-minify-phcss-css</artifactId>
-                <version>${webforj.version}</version>
-              </dependency>
-              <dependency>
-                <groupId>com.webforj</groupId>
-                <artifactId>webforj-minify-closure-js</artifactId>
-                <version>${webforj.version}</version>
-              </dependency>
-            </dependencies>
-            <configuration></configuration>
           </plugin>
         </plugins>
       </build>

@@ -6,11 +6,11 @@ import com.webforj.App
 import com.webforj.annotation.AppProfile
 import com.webforj.annotation.AppTheme
 import com.webforj.annotation.Routify
-import com.webforj.annotation.StyleSheet
+import com.webforj.bundle.annotation.BundleEntry
 
 @SpringBootApplication
 @Routify(packages = ["com.webforjkotlinstarter.views"])
-@StyleSheet("ws://app.css")
+@BundleEntry("app.css")
 @AppTheme("system")
 @AppProfile(name = "webforj-kotlin-starter", shortName = "webforj-kotlin-starter")
 object Application : App()

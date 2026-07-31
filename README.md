@@ -10,8 +10,11 @@ A starter project for building webforJ applications with the Kotlin DSL and Spri
 ## Getting Started
 
 ```bash
-mvn spring-boot:run
+mvn
 ```
+
+This runs the default goal (`compile webforj:watch spring-boot:run`), which compiles the
+frontend sources in `src/main/frontend`, watches them for changes, and serves the app.
 
 Then open [http://localhost:8080](http://localhost:8080) in your browser.
 
